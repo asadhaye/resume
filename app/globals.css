@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-space: 'Space Grotesk', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-black font-inter text-white/90;
+  }
+
+  h1, h2, h3 {
+    @apply font-space tracking-tighter;
+  }
+}
+
+/* Custom Animations */
+@keyframes hologram-pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
+
+.hologram-effect {
+  animation: hologram-pulse 2s ease-in-out infinite;
+  @apply relative overflow-hidden before:absolute before:inset-0 before:bg-[linear-gradient(45deg,transparent_25%,rgba(0,255,255,0.1)_50%,transparent_75%)] before:opacity-30;
+}
+
+@media (max-width: 768px) {
+    .hero-text {
+      font-size: 2.5rem !important;
+      line-height: 1.2 !important;
+    }
+  
+    .project-card {
+      margin-bottom: 1.5rem;
+    }
+  
+    .skills-radar {
+      width: 250px !important;
+      height: 250px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skill-node {
+      transform: scale(0.9);
+    }
+    
+    .hero-text {
+      font-size: 2.5rem;
+      padding: 0 1rem;
+    }
+    
+    .project-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
